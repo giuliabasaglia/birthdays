@@ -6,6 +6,7 @@ birthdays = {
     'Donald Trump': '06/14/1946',
     'Rowan Atkinson': '01/6/1955'}
 
+"""functions"""
 def print_birthdays():
     print('Welcome to the birthday dictionary. We know the birthdays of these people:')
     for name in birthdays:
