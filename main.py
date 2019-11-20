@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-from birthdays import return_birthday
+from folder1 import birthdays
 
-return_birthday('Albert Einstein')
-return_birthday('Alan Turing')
+birthdays.return_birthday('Albert Einstein')
+birthdays.return_birthday('Alan Turing')
