@@ -1,6 +1,10 @@
 #! /usr/bin/env python3
 
 from folder1 import birthdays
+import sys 
 
-birthdays.return_birthday('Albert Einstein')
-birthdays.return_birthday('Alan Turing')
+if len(sys.argv)>1:
+    birthdays.return_birthdays(sys.argv[1])
+else:
+    print("You didn't pass any argument")
+
