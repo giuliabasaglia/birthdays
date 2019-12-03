@@ -24,3 +24,8 @@ def return_birthday(name):
     else:
         print('Sadly, we don\'t have {}\'s birthday.'.format(name))
 
+def get_name(val): 
+    for name, date in birthdays.items(): 
+         if val == date: 
+                return date 
+
