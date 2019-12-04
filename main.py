@@ -23,11 +23,9 @@ if birthdays.return_birthday(complete_name):
 else:
     print('Sorry {} is not in the list'.format(complete_name)
 
-'''
 if __name__ == '__main__':
     args = parse_arg()
     birthdays.return_birthday(args)
-'''
 
 '''
 def verbosity_level():
