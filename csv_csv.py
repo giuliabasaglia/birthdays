@@ -7,9 +7,12 @@ birthdays = {
     'Donald Trump': '06/14/1946',
     'Rowan Atkinson': '01/6/1955'}
 
-with open('birth.txt', 'w') as f:
-    fieldname = ['name', 'date of birth']
-    w = csv.DictWriter(f, birthdays.keys())
-
-    w.writeheader()
-    w.writerow(birthdays)
+with open('birth.csv', 'w') as f:
+    for key in birthdays:
+        csv_columns= []
+        k = key
+        csv_columns.append(k)
+        v = birthdays[key]
+        csv_columns.append(v)
+        w = csv.DictWriter(f, fieldnames= csv_columns)
+        w.writeheader()
