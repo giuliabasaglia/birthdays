@@ -1,17 +1,16 @@
 #! /usr/bin/env python3
 
-from folder1 import birthdays
+from folder1 import return_birthday, birthdays
 import sys
 import argparse
 
-def parse_arg():
-    parser = argparse.ArgumentParser(prog='This program returns the birthdays of a list of famous people')
-    parser.add_argument('name', help='You have to insert a name in the format: "Name Surname"')  
-    parser.add_argument('-v', '--verbosity',choices= [0,1,2], help='Decide the level of verbosity', type=int)
-    args = parser.parse_args()
-    complete_name = args.name
-    return args
-    
+parser = argparse.ArgumentParser(prog='This program returns the birthdays of a list of famous people')
+parser.add_argument('name', help='You have to insert a name in the format: "Name Surname"')  
+parser.add_argument('-v', '--verbosity',choices= [0,1,2], help='Decide the level of verbosity', type=int)
+args = parser.parse_arg()
+complete_name = args.name
+  
+  
 birth = birthdays.return_birthday(complete_name)
 if birthdays.return_birthday(complete_name):
     if args.verbosity == 2:
@@ -23,7 +22,7 @@ if birthdays.return_birthday(complete_name):
 else:
     print('Sorry {} is not in the list'.format(complete_name)
 
-'''
+
 if __name__ == '__main__':
     args = parse_arg()
     birthdays.return_birthday(args)
