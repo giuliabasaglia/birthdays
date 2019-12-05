@@ -23,8 +23,4 @@ if args.verbosity == 2:
 elif args.verbosity == 1:
     print('{}:{}'.format(name, birth_date)
 else:
-    print('ciao')
-
-
-
-  
+    print(birth_date)
