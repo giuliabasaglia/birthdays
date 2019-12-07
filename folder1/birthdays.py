@@ -16,9 +16,9 @@ functions
 '''
 
 def print_birthdays():
-    print('Welcome to the birthday dictionary. We know the birthdays of these people:')
-    for name in d:
-        print(name)
+    print('We know the birthdays of these people:')
+    for e in d:
+        print(e)
 
 def return_birthday(name):
     if name in d:
