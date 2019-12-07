@@ -24,7 +24,7 @@ def return_birthday(name):
     if name in d:
         return d[name]
     else:
-        return (' is not in the list')
+        return False 
 
 
 

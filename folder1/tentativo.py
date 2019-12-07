@@ -18,9 +18,12 @@ name = args.n
 birth_date = return_birthday(name)
 
 # verbosity option
-if args.verbosity == 2:
-    print('{} was born the {}'.format(name, birth_date))
-elif args.verbosity == 1:
-    print('{}:{}'.format(name, birth_date)
+if birth_date:
+	if args.verbosity == 2:
+	    print('{} was born the {}'.format(name, birth_date))
+	elif args.verbosity == 1:
+	    print('{}:{}'.format(name, birth_date))
+	else:
+	    print(birth_date)
 else:
-    print(birth_date)
+	print('{} is not in the list'.format(name))
