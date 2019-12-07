@@ -34,10 +34,12 @@ for i in name:
             else:
                 print (return_birthday(i))
         else:
-            print ('ERROR: {} is not in the list, '.format(i))#,print_birthdays())
+            print ('Sorry, {} is not in the list, '.format(i))
+            print_birthdays()
     else:
         if return_birthday(i):
             print('{} was born the {}'.format(i, return_birthday(i)))
         else:
-            print('ERROR: {} is not in the list, '.format(i)) #, print_birthdays())
+            print('Sorry, {} is not in the list, '.format(i))
+	    print_birthdays()
 
