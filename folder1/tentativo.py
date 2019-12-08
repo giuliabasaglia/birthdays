@@ -15,12 +15,13 @@ parser.add_argument('n', nargs='+',
          help='You can insert one or names in the format: "Name Surname"')  
 parser.add_argument('-v', '--verbosity', type=int, choices =[0,1,2], 
          help='Decide the level of verbosity')
+
 args = parser.parse_args()
 
 
 name = args.n
+#bith_date = return_birthday(i)
 
-#birth_date = return_birthday(i)
 
 # verbosity option
 
