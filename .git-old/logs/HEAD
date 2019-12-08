@@ -1,0 +1,16 @@
+0000000000000000000000000000000000000000 da310cd89cd1c68453c97f7b51e64cf48b169db5 hapoli <anna.poli@student.gmail.com> 1574609553 -0500	clone: from https://github.com/giuliabasaglia/test.git
+da310cd89cd1c68453c97f7b51e64cf48b169db5 da310cd89cd1c68453c97f7b51e64cf48b169db5 hapoli <anna.poli@student.gmail.com> 1574890162 -0500	checkout: moving from master to csv_creation
+da310cd89cd1c68453c97f7b51e64cf48b169db5 728bc0304d3062420c7c135687928ae93a2b9538 hapoli <anna.poli@student.gmail.com> 1574892487 -0500	commit: prova di task2 w3
+728bc0304d3062420c7c135687928ae93a2b9538 a3cb434c4895544dd3b32001210108c74c1cbb13 hapoli <anna.poli@student.gmail.com> 1575362914 -0500	commit: csv
+a3cb434c4895544dd3b32001210108c74c1cbb13 da310cd89cd1c68453c97f7b51e64cf48b169db5 hapoli <anna.poli@student.gmail.com> 1575363052 -0500	checkout: moving from csv_creation to master
+da310cd89cd1c68453c97f7b51e64cf48b169db5 abc9644220db8bdcec3d755f09e3aa5b0387f129 hapoli <anna.poli@student.gmail.com> 1575394058 -0500	commit: prova verbosity
+abc9644220db8bdcec3d755f09e3aa5b0387f129 61d78eed78bc033bddfcb2d34879f8d7a5080b93 hapoli <anna.poli@student.gmail.com> 1575480440 -0500	commit: test di sysargv
+61d78eed78bc033bddfcb2d34879f8d7a5080b93 66318090aa5a80d7d9b586733501e12f21af85a2 hapoli <anna.poli@student.gmail.com> 1575482227 -0500	commit: ciao
+66318090aa5a80d7d9b586733501e12f21af85a2 a3cb434c4895544dd3b32001210108c74c1cbb13 hapoli <anna.poli@student.gmail.com> 1575482249 -0500	checkout: moving from master to csv_creation
+a3cb434c4895544dd3b32001210108c74c1cbb13 7c2668ff9fad6688415b4cc4a0d9acda961fb6cb hapoli <anna.poli@student.gmail.com> 1575487332 -0500	commit: un'altra prova
+7c2668ff9fad6688415b4cc4a0d9acda961fb6cb 66318090aa5a80d7d9b586733501e12f21af85a2 hapoli <anna.poli@student.gmail.com> 1575487345 -0500	checkout: moving from csv_creation to master
+66318090aa5a80d7d9b586733501e12f21af85a2 8b83c299a0a2579ae202813c85172f5ec982b9f7 hapoli <anna.poli@student.gmail.com> 1575487373 -0500	merge csv_creation: Merge made by the 'recursive' strategy.
+8b83c299a0a2579ae202813c85172f5ec982b9f7 daaebb8326573cb63a5c27f0884e6b189764b0c8 hapoli <anna.poli@student.gmail.com> 1575487934 -0500	pull: Fast-forward
+daaebb8326573cb63a5c27f0884e6b189764b0c8 f38fe6a2bc412f56f1bc0a7c1db5a07c59f1599c hapoli <anna.poli@student.gmail.com> 1575553833 -0500	commit: abbiamo fatto cose
+f38fe6a2bc412f56f1bc0a7c1db5a07c59f1599c ee10b6eebf3f60593ee4318abec4f02a970db1bb hapoli <anna.poli@student.gmail.com> 1575563520 +0100	commit: prova
+ee10b6eebf3f60593ee4318abec4f02a970db1bb 1e64a22257fcbd0b96e48ef71d3f9a407405e809 hapoli <anna.poli@student.gmail.com> 1575563536 +0100	commit: ciao
