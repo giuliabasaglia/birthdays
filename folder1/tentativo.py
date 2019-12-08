@@ -10,7 +10,7 @@ usiamo argvparse
 '''
 parser = argparse.ArgumentParser(prog= 'This program return the birthday of famous people')
 parser.add_argument('n', help='You have to insert a name in the format: "Name Surname"')  
-parser.add_argument('-v', '--verbosity', type=int, choices =[0,1,2], help='Decide the level of verbosity')
+parser.add_argument('-v', '--verbosity', type=int, choices=[0,1,2], default=0, help='Decide the level of verbosity')
 args = parser.parse_args()
 
 
@@ -21,9 +21,9 @@ birth_date = return_birthday(name)
 if args.verbosity == 2:
     print('{} was born the {}'.format(name, birth_date))
 elif args.verbosity == 1:
-    print('{}:{}'.format(name, birth_date)
+    print('{}:{}'.format(name, birth_date))
 else:
-    print('ciao')
+    print(birth_date)
 
 
 
