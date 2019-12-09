@@ -2,7 +2,20 @@
 
 from birthdays import return_birthday
 from birthdays import print_birthdays
+from scripts import dbmanager
+from scripts import dbmanager
+from scripts import dbmanager
+
 import argparse
+
+
+args = parse_args()
+dbmanager.check_or_create()
+if args.a and args.p:
+    dbmanager.save_new_username(args.a, args.p)
+elif args.c and args.p:
+    dbmanager.check_for_username(args.c, args.p)
+conn.close()
 
 
 '''
@@ -43,5 +56,8 @@ for i in name:
        # else:
         #    print('Sorry, {} is not in the list, '.format(i))
          #   print_birthdays()
+
+
+
 	    
 
