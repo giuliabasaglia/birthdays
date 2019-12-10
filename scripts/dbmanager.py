@@ -4,12 +4,11 @@ import argparse
 import random
 
 
-
 def check_or_create():
     ''' check if database exists in a specific file, if not create one. '''
     global conn
     global cursor
-    conn = sqlite3.connect('example-pwd.db')
+    conn = sqlite3.connect('../example-pwd.db')
     cursor = conn.cursor()
     try:
         cursor.execute("SELECT * FROM user")
@@ -22,7 +21,7 @@ def check_or_create():
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-a', help="add a usernamename (requires -p)",
-                        required=True)
+                        required=False)
     parser.add_argument('-p', help="the username password",
                         required=True)
     parser.add_argument('-c', help="check for a usernamename and password"
@@ -42,12 +41,13 @@ def save_new_username(username, password):
                    (username, digest, salt))
     conn.commit()
 
-'''
+
 def check_for_username(username, password):
     global conn
     global cursor
-    salt = cursor.execute("SELECT salt FROM user WHERE username=?",(username))
-    digest = salt + password
+    salt = cursor.execute("SELECT salt FROM user WHERE username=?",(username,))
+    results = salt.fetchone()
+    digest = results[0] + password
     for i in range(100000):
         digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
     rows = cursor.execute("SELECT * FROM user WHERE username=? and password=?",
@@ -63,12 +63,11 @@ def check_for_username(username, password):
 args = parse_args()
 check_or_create()
 if args.a and args.p:
-    dbmanager.save_new_username(args.a, args.p)
+    save_new_username(args.a, args.p)
 elif args.c and args.p:
-    dbmanager.check_for_username(args.c, args.p)
+    check_for_username(args.c, args.p)
 conn.close()
 
-'''
 
 
 
