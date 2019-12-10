@@ -6,22 +6,17 @@ import argparse
 import sqlite3
 import hashlib
 
-
 from folder1 import birthdays
 from folder1 import birthdays
 from scripts import dbmanager
-#from scripts import save_new_username, dbmanager
-#from scripts import check_for_username, dbmanager
 
+"""Requires the credentials (username and password).
 
-
-
-
-#usiamo argvparse
-
+If valid, it returns the birthday of the searched famous person/people.
+"""
 
 parser = argparse.ArgumentParser(
-         prog= 'This program return the birthday of famous people')
+         prog= "This program return the birthday of famous people")
 parser.add_argument('n', nargs='+', 
          help='You can insert one or names in the format: "Name Surname"')  
 parser.add_argument('-v', '--verbosity', action='count', default=0,
@@ -29,20 +24,20 @@ parser.add_argument('-v', '--verbosity', action='count', default=0,
 parser.add_argument('-p', help="the username password",
                         required=True)
 parser.add_argument('-c', help="check for a usernamename and password"
-                       "(requires -p)", required=False)
-
+                       "(requires -p)", required=True)
 args = parser.parse_args()
 
-
-name = args.n
 
 conn = sqlite3.connect('example-pwd.db')
 cursor = conn.cursor()
 
+
 def check_for_username(username, password):
+    """Check if username and password are valid"""
     global conn
     global cursor
-    salt = cursor.execute("SELECT salt FROM user WHERE username=?", (username,))
+    salt = cursor.execute("SELECT salt FROM user WHERE username=?",
+                          (username,))
     # results is a list of tuples 
     results = salt.fetchone()
     digest = (results[0]) + password
@@ -64,6 +59,7 @@ check_for_username(args.c, args.p)
 
 
 # verbosity option
+name = args.n
 
 for i in name:
     #if args.verbosity:
