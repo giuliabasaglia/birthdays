@@ -46,13 +46,45 @@ def save_new_username(username, password):
     conn.commit()
 
 
+
 def check_for_username(username, password):
     global conn
     global cursor
-    #PROBLEMA: SE LO USER NON C'È CRASHA. QUESTO È UN TENTATIVO PER RISOLVERLO
+#problema
+    try:
+        cursor.execute("SELECT username FROM user WHERE username=?",(username,)).fetchall()[0] #sostituito a fetchone()
+    except:
+        print('Username is not valid')
+        return #
+    salt = cursor.execute("SELECT salt FROM user WHERE username=?",(username,))
+    results = salt.fetchone()
+    #print (results)
+    digest = (results[0]) + password
+    for i in range(100000):
+        digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
+    rows = cursor.execute("SELECT * FROM user WHERE username=? and password=?",
+                      (username, digest))
+    conn.commit()
+    results = rows.fetchall()
+    if results:
+        print("User is present, password is valid" )
+        return True
+    else:
+        print("Password is invalid")
+        return False
+
+
+
+'''
+
+def check_for_username(username, password):
+    global conn
+    global cursor
+#problema
     if cursor.execute("SELECT username FROM user WHERE username=?",(username,)):
         salt = cursor.execute("SELECT salt FROM user WHERE username=?",(username,))
         results = salt.fetchone()
+        print (results)
         digest = (results[0]) + password
         for i in range(100000):
             digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
@@ -69,8 +101,7 @@ def check_for_username(username, password):
     else:
         print("Username not valid")
         return False
-
-    
+'''
 
 
 if __name__=="__main__":
