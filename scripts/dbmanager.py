@@ -3,8 +3,8 @@ import hashlib
 import argparse
 import random
 
-conn = None
-cursor = None
+conn = sqlite3.connect('example-pwd.db')
+cursor = conn.cursor()
 
 def check_or_create():
     ''' check if database exists in a specific file, if not create one. '''
@@ -64,7 +64,7 @@ def check_for_username(username, password):
         return False
 
 
-
+'''
 if __name__ == "__main__":
      check_or_create()    
      args = parse_arguments()
@@ -72,7 +72,7 @@ if __name__ == "__main__":
      
     
 
-'''
+
 args = parse_args()
 check_or_create()
 if args.a and args.p:

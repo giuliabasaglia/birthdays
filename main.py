@@ -20,7 +20,7 @@ def parse_argument():
              prog= "This program return the birthday of famous people")
 
     parser.add_argument('n', nargs='+',
-             help='You can insert one or names in the format: "Name Surname"', required=True)
+             help='You can insert one or names in the format: "Name Surname"')
  
     parser.add_argument('-v', '--verbosity', action='count', default=0,
               help='Decide the level of verbosity')
@@ -33,8 +33,8 @@ def parse_argument():
     args = parser.parse_args()
     return args
 
-def verbosity_levels():
-    name = args.n
+def verbosity_levels(name):
+    
     for i in name:
     #if args.verbosity:
         if birthdays.return_birthday(i):
@@ -50,10 +50,11 @@ def verbosity_levels():
 
 
 if __name__ == "__main__":
-     dbmanager.check_or_create()    
-     args = parse_arguments()
-     dbmanager.check_for_username(args.c, args.p):
-         verbosity_levels()
+     parse_argument()   
+     args = parse_argument()
+
+     if dbmanager.check_for_username(args.c, args.p):
+         verbosity_levels(args.n)
      
      
       
