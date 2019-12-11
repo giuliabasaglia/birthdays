@@ -4,7 +4,7 @@ trasformiamo il csv in dizionario
 '''
 import csv
 
-reader = csv.reader (open('birth.csv', 'r'))
+reader = csv.reader (open('folder1/birth.csv', 'r'))
 d = {}
 for row in reader:
     k,v = row  

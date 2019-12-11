@@ -3,6 +3,8 @@ import hashlib
 import argparse
 import random
 
+conn = None
+cursor = None
 
 def check_or_create():
     ''' check if database exists in a specific file, if not create one. '''
@@ -32,7 +34,7 @@ def parse_args():
 def save_new_username(username, password):
     global conn
     global cursor
-    salt = str(random.random())
+    salt = str(random.random(1,10000))#############
     digest = salt + password
     for i in range(100000):
         digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
@@ -47,7 +49,7 @@ def check_for_username(username, password):
     global cursor
     salt = cursor.execute("SELECT salt FROM user WHERE username=?",(username,))
     results = salt.fetchone()
-    digest = results[0] + password
+    digest = (results[0]) + password
     for i in range(100000):
         digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
     rows = cursor.execute("SELECT * FROM user WHERE username=? and password=?",
@@ -56,10 +58,21 @@ def check_for_username(username, password):
     results = rows.fetchall()
     if results:
         print("User is present, password is valid" )
+        return True
     else:
         print("User is not present, or password is invalid")
+        return False
 
 
+
+if __name__ == "__main__":
+     check_or_create()    
+     args = parse_arguments()
+     dbmanager.check_for_username(args.c, args.p)
+     
+    
+
+'''
 args = parse_args()
 check_or_create()
 if args.a and args.p:
@@ -68,6 +81,6 @@ elif args.c and args.p:
     check_for_username(args.c, args.p)
 conn.close()
 
-
+'''
 
 
