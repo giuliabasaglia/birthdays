@@ -6,6 +6,8 @@ import random
 conn = sqlite3.connect('example-pwd.db')
 cursor = conn.cursor()
 
+conn = 0
+cursor = 0
 def check_or_create():
     ''' check if database exists in a specific file, if not create one. '''
     global conn
@@ -34,7 +36,7 @@ def parse_args():
 def save_new_username(username, password):
     global conn
     global cursor
-    salt = str(random.random(1,10000))#############
+    salt = str(random.random())
     digest = salt + password
     for i in range(100000):
         digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
@@ -47,40 +49,41 @@ def save_new_username(username, password):
 def check_for_username(username, password):
     global conn
     global cursor
-    salt = cursor.execute("SELECT salt FROM user WHERE username=?",(username,))
-    results = salt.fetchone()
-    digest = (results[0]) + password
-    for i in range(100000):
-        digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
-    rows = cursor.execute("SELECT * FROM user WHERE username=? and password=?",
+    #PROBLEMA: SE LO USER NON C'È CRASHA. QUESTO È UN TENTATIVO PER RISOLVERLO
+    if cursor.execute("SELECT username FROM user WHERE username=?",(username,)):
+        salt = cursor.execute("SELECT salt FROM user WHERE username=?",(username,))
+        results = salt.fetchone()
+        digest = (results[0]) + password
+        for i in range(100000):
+            digest = hashlib.sha256(digest.encode('utf-8')).hexdigest()
+        rows = cursor.execute("SELECT * FROM user WHERE username=? and password=?",
                           (username, digest))
-    conn.commit()
-    results = rows.fetchall()
-    if results:
-        print("User is present, password is valid" )
-        return True
+        conn.commit()
+        results = rows.fetchall()
+        if results:
+            print("User is present, password is valid" )
+            return True
+        else:
+            print("Password is invalid")
+            return False
     else:
-        print("User is not present, or password is invalid")
+        print("Username not valid")
         return False
 
-
-'''
-if __name__ == "__main__":
-     check_or_create()    
-     args = parse_arguments()
-     dbmanager.check_for_username(args.c, args.p)
-     
     
 
 
-args = parse_args()
-check_or_create()
-if args.a and args.p:
-    save_new_username(args.a, args.p)
-elif args.c and args.p:
-    check_for_username(args.c, args.p)
-conn.close()
+if __name__=="__main__":
+    check_or_create()
+    parse_args()
+    args = parse_args()
+    if args.a and args.p:
+        save_new_username(args.a, args.p)
+    elif args.c and args.p:
+        check_for_username(args.c, args.p)
+    conn.close()   
+     
 
-'''
+    
 
 

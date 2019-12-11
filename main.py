@@ -59,13 +59,6 @@ if __name__ == "__main__":
      
       
           
-
-
-#arg = user_parse_args()
-#dbmanager.check_or_create()
-#if arg.a and arg.p:
-#    dbmanager.save_new_username(arg.a, arg.p)
-#elif arg.c and arg.p:
     
 
 
