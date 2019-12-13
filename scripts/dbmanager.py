@@ -44,6 +44,7 @@ def save_new_username(username, password):
     cursor.execute("INSERT OR REPLACE INTO user VALUES (?,?,?)",
                    (username, digest, salt))
     conn.commit()
+    print('Username {} successfully added.'.format(username)
 
 
 
