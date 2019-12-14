@@ -48,12 +48,12 @@ def verbosity_levels(name):
             print ('Sorry, {} is not in the list, '.format(i))
             birthdays.print_birthdays()
 
+db_corr= 'user_database.db'
 
 if __name__ == "__main__":
      parse_argument()   
      args = parse_argument()
-
-     if dbmanager.check_for_username(args.c, args.p):
+     if dbmanager.check_for_username(args.c, args.p, db_corr):
          verbosity_levels(args.n)
      
      
